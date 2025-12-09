@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 Ceres TCC AI
 
-## Getting Started
+Assistente inteligente para pesquisa de Trabalhos de Conclusão de Curso (TCCs) da UFRN, utilizando busca semântica e inteligência artificial para facilitar a descoberta e exploração de trabalhos acadêmicos.
 
-First, run the development server:
+## 📋 Sobre o Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O **Ceres TCC AI** é uma ferramenta desenvolvida para auxiliar estudantes, pesquisadores e orientadores na busca por trabalhos de conclusão de curso da Universidade Federal do Rio Grande do Norte (UFRN). A aplicação utiliza tecnologias modernas de IA para entender a intenção da busca e retornar os trabalhos mais relevantes de forma inteligente e contextualizada.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Funcionalidades
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Busca Semântica Inteligente**: Utiliza embeddings multilíngues para compreender o contexto e a intenção da pesquisa, indo além de simples palavras-chave
+- **Respostas em Tempo Real**: Streaming de respostas utilizando LLM (Large Language Model) para explicações claras e didáticas sobre os trabalhos encontrados
+- **Cards Interativos**: Apresentação organizada dos TCCs com informações detalhadas (título, autor, orientador, curso, resumo e link)
+- **Interface Moderna**: Design limpo e responsivo com foco na experiência do usuário
+- **Explicações Contextualizadas**: A IA analisa os resumos dos trabalhos e fornece explicações sobre o que cada TCC aborda
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tecnologias Utilizadas
 
-## Learn More
+### Frontend
+- **Next.js 15** - Framework React com App Router
+- **React 19** - Biblioteca para construção de interfaces
+- **Tailwind CSS 4** - Framework CSS utilitário
+- **Lucide React** - Biblioteca de ícones moderna
+- **React Markdown** - Renderização de markdown para respostas formatadas
 
-To learn more about Next.js, take a look at the following resources:
+### Backend & IA
+- **Vercel AI SDK** - Framework para integração com modelos de IA
+- **Groq (Llama 3.3 70B)** - LLM para geração de respostas inteligentes
+- **Hugging Face Inference** - Geração de embeddings vetoriais
+- **Qdrant** - Banco de dados vetorial para busca semântica
+- **sentence-transformers** - Modelo multilíngue para embeddings de texto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧠 Como Funciona
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Pergunta do Usuário**: O usuário faz uma pergunta ou busca por tema, autor ou orientador
+2. **Geração de Embedding**: A pergunta é convertida em um vetor semântico usando um modelo transformer multilíngue
+3. **Busca Vetorial**: O Qdrant busca os TCCs mais similares semanticamente no banco de dados vetorial
+4. **Contextualização**: Os documentos encontrados são organizados e contextualizados para a LLM
+5. **Resposta Inteligente**: O modelo Llama analisa os TCCs e gera uma resposta estruturada e didática
+6. **Apresentação**: A resposta é exibida em streaming junto com cards interativos dos trabalhos encontrados
 
-## Deploy on Vercel
+## 🎯 Arquitetura RAG (Retrieval-Augmented Generation)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O projeto implementa uma arquitetura RAG completa:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Retrieval**: Busca semântica no Qdrant usando embeddings
+- **Augmentation**: Contextualização dos documentos para a LLM
+- **Generation**: Geração de respostas naturais e informativas com Llama 3.3
+
+## 👥 Casos de Uso
+
+- Estudantes buscando referências para seus TCCs
+- Pesquisadores explorando trabalhos sobre temas específicos
+- Orientadores identificando trabalhos de seus orientandos
+- Descoberta de TCCs por curso ou área de conhecimento
+- Análise de tendências e temas recorrentes em trabalhos acadêmicos
+
+## 📄 Licença
+
+Este projeto foi desenvolvido como trabalho acadêmico na UFRN.
